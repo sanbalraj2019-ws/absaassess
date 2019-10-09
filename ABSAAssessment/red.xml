@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectConfiguration>
+    <configVersion>2</configVersion>
+    <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="VIRTUAL" name="BuiltIn.libspec" path="ABSAAssessment/libspecs/BuiltIn.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Collections.libspec" path="ABSAAssessment/libspecs/Collections.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="DateTime.libspec" path="ABSAAssessment/libspecs/DateTime.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Dialogs.libspec" path="ABSAAssessment/libspecs/Dialogs.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Easter.libspec" path="ABSAAssessment/libspecs/Easter.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="OperatingSystem.libspec" path="ABSAAssessment/libspecs/OperatingSystem.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Process.libspec" path="ABSAAssessment/libspecs/Process.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Reserved.libspec" path="ABSAAssessment/libspecs/Reserved.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Screenshot.libspec" path="ABSAAssessment/libspecs/Screenshot.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Selenium2Library_f907023.libspec" path="ABSAAssessment/libspecs/Selenium2Library_f907023.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="String.libspec" path="ABSAAssessment/libspecs/String.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="Telnet.libspec" path="ABSAAssessment/libspecs/Telnet.libspec"/>
+    <referencedLibrary type="VIRTUAL" name="XML.libspec" path="ABSAAssessment/libspecs/XML.libspec"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary" path="C:/Python27/Lib/site-packages/RequestsLibrary/__init__.py"/>
+    <referencedLibrary type="PYTHON" name="Selenium2Library" path="C:/Python27/Lib/site-packages/Selenium2Library/__init__.py"/>
+    <referencedLibrary type="PYTHON" name="HttpLibrary" path="C:/Python27/Lib/site-packages/HttpLibrary/__init__.py"/>
+    <referencedLibrary type="PYTHON" name="HttpLibrary.HTTP" path="C:/Python27/lib/site-packages/HttpLibrary/__init__.py"/>
+    <pythonpath/>
+    <classpath/>
+    <excludedForValidation/>
+    <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
+    <validatedFileMaxSize>1024</validatedFileMaxSize>
+</projectConfiguration>

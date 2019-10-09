@@ -1,0 +1,1392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190912 00:10:12.514" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment" id="s1" name="ABSAAssessment">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\API" id="s1-s1" name="API">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\API\Test" id="s1-s1-s1" name="Test">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\API\Test\test2.robot" id="s1-s1-s1-s1" name="Test2">
+<test id="s1-s1-s1-s1-t1" name="Test0001 API Test">
+<kw name="API connection status" library="apiconnection">
+<arguments>
+<arg>${baseurl}</arg>
+<arg>${sublink}</arg>
+</arguments>
+<assign>
+<var>${basecontent}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${baseurl}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:12.995" level="INFO">Creating Session using : alias=All_dogs_list, url=https://dog.ceo, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190912 00:10:12.995" starttime="20190912 00:10:12.994"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${sublink}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190912 00:10:14.399" level="INFO">Get Request using : alias=All_dogs_list, uri=/dog-api/, headers=None json=None</msg>
+<msg timestamp="20190912 00:10:14.400" level="INFO">C:\Python27\Lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190912 00:10:14.401" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:14.401" starttime="20190912 00:10:12.995"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${response.status_code} == 200</arg>
+<arg>Log To Console</arg>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:14.407" starttime="20190912 00:10:14.405"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:14.408" starttime="20190912 00:10:14.403"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:14.411" starttime="20190912 00:10:14.409"></status>
+</kw>
+<msg timestamp="20190912 00:10:14.412" level="INFO">${basecontent} = ${response.content</msg>
+<status status="PASS" endtime="20190912 00:10:14.413" starttime="20190912 00:10:12.993"></status>
+</kw>
+<doc>Check base url connection and content</doc>
+<tags>
+<tag>apitest001</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:14.414" critical="yes" starttime="20190912 00:10:12.992"></status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Task 001">
+<kw name="API connection status" library="apiconnection">
+<arguments>
+<arg>${baseurl}</arg>
+<arg>${dogslist}</arg>
+</arguments>
+<assign>
+<var>${alldogslist}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${baseurl}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:14.422" level="INFO">Creating Session using : alias=All_dogs_list, url=https://dog.ceo, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190912 00:10:14.424" starttime="20190912 00:10:14.421"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${sublink}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190912 00:10:15.225" level="INFO">Get Request using : alias=All_dogs_list, uri=/api/breeds/list/all, headers=None json=None</msg>
+<msg timestamp="20190912 00:10:15.226" level="INFO">C:\Python27\Lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190912 00:10:15.227" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:15.228" starttime="20190912 00:10:14.426"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${response.status_code} == 200</arg>
+<arg>Log To Console</arg>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:15.234" starttime="20190912 00:10:15.232"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:15.235" starttime="20190912 00:10:15.229"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:15.238" starttime="20190912 00:10:15.236"></status>
+</kw>
+<msg timestamp="20190912 00:10:15.239" level="INFO">${alldogslist} = ${response.content</msg>
+<status status="PASS" endtime="20190912 00:10:15.240" starttime="20190912 00:10:14.419"></status>
+</kw>
+<kw name="Check name in the list" library="checkretriver">
+<arguments>
+<arg>${alldogslist}</arg>
+<arg>retriever</arg>
+</arguments>
+<kw name="Get Lines Matching Pattern" library="String">
+<doc>Returns lines of the given ``string`` that match the ``pattern``.</doc>
+<arguments>
+<arg>${message}</arg>
+<arg>${checkname}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:15.246" level="INFO">0 out of 1 lines matched</msg>
+<status status="PASS" endtime="20190912 00:10:15.246" starttime="20190912 00:10:15.243"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:15.247" starttime="20190912 00:10:15.241"></status>
+</kw>
+<doc>Check all breads list and verify retriever is available</doc>
+<tags>
+<tag>apitest002</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:15.249" critical="yes" starttime="20190912 00:10:14.416"></status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Task 002">
+<kw name="API connection status" library="apiconnection">
+<arguments>
+<arg>${baseurl}</arg>
+<arg>${subretriver}</arg>
+</arguments>
+<assign>
+<var>${alldogslist}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${baseurl}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:15.257" level="INFO">Creating Session using : alias=All_dogs_list, url=https://dog.ceo, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190912 00:10:15.259" starttime="20190912 00:10:15.256"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${sublink}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190912 00:10:15.973" level="INFO">Get Request using : alias=All_dogs_list, uri=/api/breed/retriever/list, headers=None json=None</msg>
+<msg timestamp="20190912 00:10:15.974" level="INFO">C:\Python27\Lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190912 00:10:15.974" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:15.975" starttime="20190912 00:10:15.260"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${response.status_code} == 200</arg>
+<arg>Log To Console</arg>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:15.981" starttime="20190912 00:10:15.979"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:15.982" starttime="20190912 00:10:15.977"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:15.985" starttime="20190912 00:10:15.983"></status>
+</kw>
+<msg timestamp="20190912 00:10:15.986" level="INFO">${alldogslist} = ${response.content</msg>
+<status status="PASS" endtime="20190912 00:10:15.986" starttime="20190912 00:10:15.254"></status>
+</kw>
+<doc>Check retriever sub breeds</doc>
+<tags>
+<tag>apitest003</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:15.987" critical="yes" starttime="20190912 00:10:15.251"></status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Task 004">
+<kw name="API connection status" library="apiconnection">
+<arguments>
+<arg>${baseurl}</arg>
+<arg>${subretriverimg}</arg>
+</arguments>
+<assign>
+<var>${alldogslist}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${baseurl}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:15.993" level="INFO">Creating Session using : alias=All_dogs_list, url=https://dog.ceo, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190912 00:10:15.995" starttime="20190912 00:10:15.992"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>All_dogs_list</arg>
+<arg>${sublink}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190912 00:10:17.484" level="INFO">Get Request using : alias=All_dogs_list, uri=/api/breed/retriever/golden/images/random, headers=None json=None</msg>
+<msg timestamp="20190912 00:10:17.484" level="INFO">C:\Python27\Lib\site-packages\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190912 00:10:17.485" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:17.486" starttime="20190912 00:10:15.996"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${response.status_code} == 200</arg>
+<arg>Log To Console</arg>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Status : ${response.status_code}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:17.493" starttime="20190912 00:10:17.490"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:17.493" starttime="20190912 00:10:17.487"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:17.496" starttime="20190912 00:10:17.495"></status>
+</kw>
+<msg timestamp="20190912 00:10:17.497" level="INFO">${alldogslist} = ${response.content</msg>
+<status status="PASS" endtime="20190912 00:10:17.498" starttime="20190912 00:10:15.991"></status>
+</kw>
+<doc>Check random image in retriever sub breeds</doc>
+<tags>
+<tag>apitest004</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:17.499" critical="yes" starttime="20190912 00:10:15.989"></status>
+</test>
+<status status="PASS" endtime="20190912 00:10:17.503" starttime="20190912 00:10:12.568"></status>
+</suite>
+<status status="PASS" endtime="20190912 00:10:17.515" starttime="20190912 00:10:12.566"></status>
+</suite>
+<status status="PASS" endtime="20190912 00:10:17.522" starttime="20190912 00:10:12.564"></status>
+</suite>
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\Webtest" id="s1-s2" name="Webtest">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\Webtest\test" id="s1-s2-s1" name="Test">
+<suite source="C:\Bala\ABSARFW\ABSAAssessment\Webtest\test\test1.robot" id="s1-s2-s1-s1" name="Test1">
+<test id="s1-s2-s1-s1-t1" name="Task2-Web">
+<kw name="Login weburl" library="keywords">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:17.558" level="INFO">Opening browser 'Chrome' to base url 'http://www.way2automation.com/angularjs-protractor/webtables/'.</msg>
+<status status="PASS" endtime="20190912 00:10:22.056" starttime="20190912 00:10:17.558"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20190912 00:10:23.172" starttime="20190912 00:10:22.057"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.172" starttime="20190912 00:10:17.557"></status>
+</kw>
+<kw name="Check your name" library="task001">
+<arguments>
+<arg>Balachandar</arg>
+<arg>Santhanam</arg>
+</arguments>
+<assign>
+<var>${verifycount}</var>
+</assign>
+<kw name="Get Element Count" library="Selenium2Library">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr/td[1]</arg>
+</arguments>
+<assign>
+<var>${itemcount}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.187" level="INFO">${itemcount} = 7</msg>
+<status status="PASS" endtime="20190912 00:10:23.187" starttime="20190912 00:10:23.174"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.188" starttime="20190912 00:10:23.188"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 1 | ${itemcount} ]">
+<kw type="foritem" name="${i} = 1">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.202" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="af3ad71f-dd64-4413-8fdc-07b673f0f17b")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.202" starttime="20190912 00:10:23.189"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.210" level="INFO">${value1} = Tom</msg>
+<status status="PASS" endtime="20190912 00:10:23.210" starttime="20190912 00:10:23.202"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.222" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="13db59e8-d928-4b73-8b8a-d6e6dddd1b5c")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.222" starttime="20190912 00:10:23.210"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.229" level="INFO">${value2} = Blue</msg>
+<status status="PASS" endtime="20190912 00:10:23.229" starttime="20190912 00:10:23.223"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.230" level="INFO">${fullname} = Tom Blue</msg>
+<status status="PASS" endtime="20190912 00:10:23.230" starttime="20190912 00:10:23.230"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.231" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.231" starttime="20190912 00:10:23.230"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.232" starttime="20190912 00:10:23.231"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.233" starttime="20190912 00:10:23.232"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.233" starttime="20190912 00:10:23.189"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.245" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="ddf57a29-57a5-4aa5-bed6-8049e9e72d0e")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.246" starttime="20190912 00:10:23.233"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.253" level="INFO">${value1} = sale</msg>
+<status status="PASS" endtime="20190912 00:10:23.253" starttime="20190912 00:10:23.246"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.265" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="b45f301b-4488-460c-ad03-8f91e8f4150c")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.265" starttime="20190912 00:10:23.253"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.272" level="INFO">${value2} = sale</msg>
+<status status="PASS" endtime="20190912 00:10:23.272" starttime="20190912 00:10:23.266"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.273" level="INFO">${fullname} = sale sale</msg>
+<status status="PASS" endtime="20190912 00:10:23.273" starttime="20190912 00:10:23.273"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.274" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.274" starttime="20190912 00:10:23.274"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.275" starttime="20190912 00:10:23.274"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.276" starttime="20190912 00:10:23.275"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.276" starttime="20190912 00:10:23.233"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.288" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="a453cc1e-2074-4953-af88-4d356424b9db")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.288" starttime="20190912 00:10:23.276"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.295" level="INFO">${value1} = Mark</msg>
+<status status="PASS" endtime="20190912 00:10:23.295" starttime="20190912 00:10:23.289"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.308" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="95088cca-f32b-4370-aedd-409be6c7aaeb")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.308" starttime="20190912 00:10:23.296"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.316" level="INFO">${value2} = Novak</msg>
+<status status="PASS" endtime="20190912 00:10:23.316" starttime="20190912 00:10:23.309"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.317" level="INFO">${fullname} = Mark Novak</msg>
+<status status="PASS" endtime="20190912 00:10:23.317" starttime="20190912 00:10:23.316"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.318" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.318" starttime="20190912 00:10:23.317"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.319" starttime="20190912 00:10:23.318"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.319" starttime="20190912 00:10:23.319"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.320" starttime="20190912 00:10:23.276"></status>
+</kw>
+<kw type="foritem" name="${i} = 4">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.332" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="ade53f98-bf7b-4121-97ca-d2ce20dcce07")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.332" starttime="20190912 00:10:23.320"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.339" level="INFO">${value1} = testadmin</msg>
+<status status="PASS" endtime="20190912 00:10:23.339" starttime="20190912 00:10:23.332"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.352" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="b8664767-3140-4aa0-aaf1-1133c2a92810")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.352" starttime="20190912 00:10:23.340"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.359" level="INFO">${value2} = testadmin</msg>
+<status status="PASS" endtime="20190912 00:10:23.359" starttime="20190912 00:10:23.352"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.360" level="INFO">${fullname} = testadmin testadmin</msg>
+<status status="PASS" endtime="20190912 00:10:23.360" starttime="20190912 00:10:23.360"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.361" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.361" starttime="20190912 00:10:23.360"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.362" starttime="20190912 00:10:23.361"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.362" starttime="20190912 00:10:23.362"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.363" starttime="20190912 00:10:23.320"></status>
+</kw>
+<kw type="foritem" name="${i} = 5">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.376" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="1bfcdd4c-318b-4f5c-bf85-077356ea7a32")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.376" starttime="20190912 00:10:23.363"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.384" level="INFO">${value1} = admin</msg>
+<status status="PASS" endtime="20190912 00:10:23.384" starttime="20190912 00:10:23.377"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.400" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="0dde2b52-5b7d-41e0-94b4-ff5c0a8c861a")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.400" starttime="20190912 00:10:23.384"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.407" level="INFO">${value2} = admin</msg>
+<status status="PASS" endtime="20190912 00:10:23.407" starttime="20190912 00:10:23.401"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.408" level="INFO">${fullname} = admin admin</msg>
+<status status="PASS" endtime="20190912 00:10:23.408" starttime="20190912 00:10:23.407"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.409" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.409" starttime="20190912 00:10:23.408"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.409" starttime="20190912 00:10:23.409"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.410" starttime="20190912 00:10:23.410"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.410" starttime="20190912 00:10:23.363"></status>
+</kw>
+<kw type="foritem" name="${i} = 6">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.423" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="a32c0c51-23d5-4a64-8cfc-d577593d0547")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.423" starttime="20190912 00:10:23.411"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.429" level="INFO">${value1} = test</msg>
+<status status="PASS" endtime="20190912 00:10:23.429" starttime="20190912 00:10:23.423"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.442" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="cc90d1fb-b97e-4856-82b0-470a89e93f11")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:23.442" starttime="20190912 00:10:23.430"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.449" level="INFO">${value2} = test</msg>
+<status status="PASS" endtime="20190912 00:10:23.449" starttime="20190912 00:10:23.442"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.450" level="INFO">${fullname} = test test</msg>
+<status status="PASS" endtime="20190912 00:10:23.450" starttime="20190912 00:10:23.449"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:23.451" level="INFO">${checkname} = Balachandar Santhanam</msg>
+<status status="PASS" endtime="20190912 00:10:23.451" starttime="20190912 00:10:23.450"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.452" starttime="20190912 00:10:23.451"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == ${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.453" starttime="20190912 00:10:23.452"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.453" starttime="20190912 00:10:23.411"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:23.453" starttime="20190912 00:10:23.188"></status>
+</kw>
+<msg timestamp="20190912 00:10:23.453" level="INFO">${verifycount} = None</msg>
+<status status="PASS" endtime="20190912 00:10:23.453" starttime="20190912 00:10:23.173"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Position : ${verifycount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.454" starttime="20190912 00:10:23.454"></status>
+</kw>
+<doc>Check your name is available</doc>
+<tags>
+<tag>webtest001</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:23.454" critical="yes" starttime="20190912 00:10:17.557"></status>
+</test>
+<test id="s1-s2-s1-s1-t2" name="Task 002">
+<kw name="Add given user" library="adduser">
+<arguments>
+<arg>${0}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${addbutton}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:23.482" starttime="20190912 00:10:23.456"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${addbutton}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.483" level="INFO">Clicking button '//button[@type='add']'.</msg>
+<status status="PASS" endtime="20190912 00:10:23.574" starttime="20190912 00:10:23.482"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${fnameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.575" level="INFO">Typing text 'FName1' into text field 'FirstName'.</msg>
+<status status="PASS" endtime="20190912 00:10:23.698" starttime="20190912 00:10:23.574"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${lname}</arg>
+<arg>${lnameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.699" level="INFO">Typing text 'LName1' into text field 'LastName'.</msg>
+<status status="PASS" endtime="20190912 00:10:23.787" starttime="20190912 00:10:23.699"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${uname}</arg>
+<arg>${unameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.788" level="INFO">Typing text 'User1' into text field 'UserName'.</msg>
+<status status="PASS" endtime="20190912 00:10:23.879" starttime="20190912 00:10:23.787"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>${passval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.880" level="INFO">Typing text 'Pass1' into text field 'Password'.</msg>
+<status status="PASS" endtime="20190912 00:10:23.973" starttime="20190912 00:10:23.879"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets radio button group ``group_name`` to ``value``.</doc>
+<arguments>
+<arg>${radio}</arg>
+<arg>${cusval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:23.974" level="INFO">Selecting '15' from radio button 'optionsRadios'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.042" starttime="20190912 00:10:23.973"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>${role}</arg>
+<arg>${roleval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.044" level="INFO">Selecting options from selection list '//select[@name='RoleId']' by label Admin.</msg>
+<status status="PASS" endtime="20190912 00:10:24.122" starttime="20190912 00:10:24.043"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email}</arg>
+<arg>${emailval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.124" level="INFO">Typing text 'admin@mail.com' into text field '//input[@name='Email']'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.235" starttime="20190912 00:10:24.123"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${cell}</arg>
+<arg>${cellval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.236" level="INFO">Typing text '082555' into text field 'Mobilephone'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.323" starttime="20190912 00:10:24.235"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${save}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.324" level="INFO">Clicking button '//*[@class='btn btn-success']'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.413" starttime="20190912 00:10:24.323"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>User created: ${unameval [${i}]}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:24.415" starttime="20190912 00:10:24.414"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:24.415" starttime="20190912 00:10:23.456"></status>
+</kw>
+<kw name="Check your name" library="task001">
+<arguments>
+<arg>FName1</arg>
+<arg>LName1</arg>
+</arguments>
+<assign>
+<var>${verifycount}</var>
+</assign>
+<kw name="Get Element Count" library="Selenium2Library">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr/td[1]</arg>
+</arguments>
+<assign>
+<var>${itemcount}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.427" level="INFO">${itemcount} = 8</msg>
+<status status="PASS" endtime="20190912 00:10:24.427" starttime="20190912 00:10:24.416"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:24.428" starttime="20190912 00:10:24.427"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 1 | ${itemcount} ]">
+<kw type="foritem" name="${i} = 1">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.437" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="042575c2-57f7-4881-a39c-4850ac57ce0c")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:24.437" starttime="20190912 00:10:24.429"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.443" level="INFO">${value1} = FName1</msg>
+<status status="PASS" endtime="20190912 00:10:24.443" starttime="20190912 00:10:24.437"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.451" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="8858407f-498e-44c1-be14-8ecbaa6d60c3")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:24.451" starttime="20190912 00:10:24.443"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.457" level="INFO">${value2} = LName1</msg>
+<status status="PASS" endtime="20190912 00:10:24.458" starttime="20190912 00:10:24.451"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.459" level="INFO">${fullname} = FName1 LName1</msg>
+<status status="PASS" endtime="20190912 00:10:24.459" starttime="20190912 00:10:24.458"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:24.459" level="INFO">${checkname} = FName1 LName1</msg>
+<status status="PASS" endtime="20190912 00:10:24.460" starttime="20190912 00:10:24.459"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.460" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20190912 00:10:24.460" starttime="20190912 00:10:24.460"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:24.461" starttime="20190912 00:10:24.429"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:24.461" starttime="20190912 00:10:24.428"></status>
+</kw>
+<msg timestamp="20190912 00:10:24.461" level="INFO">${verifycount} = 1</msg>
+<status status="PASS" endtime="20190912 00:10:24.461" starttime="20190912 00:10:24.416"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Position : ${verifycount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:24.462" starttime="20190912 00:10:24.462"></status>
+</kw>
+<doc>Add user 1 and check available</doc>
+<tags>
+<tag>webtest002</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:24.462" critical="yes" starttime="20190912 00:10:23.455"></status>
+</test>
+<test id="s1-s2-s1-s1-t3" name="Task 003">
+<kw name="Add given user" library="adduser">
+<arguments>
+<arg>${1}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${addbutton}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:24.481" starttime="20190912 00:10:24.464"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${addbutton}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.481" level="INFO">Clicking button '//button[@type='add']'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.538" starttime="20190912 00:10:24.481"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${fnameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.540" level="INFO">Typing text 'FName2' into text field 'FirstName'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.636" starttime="20190912 00:10:24.539"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${lname}</arg>
+<arg>${lnameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.637" level="INFO">Typing text 'LName2' into text field 'LastName'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.720" starttime="20190912 00:10:24.636"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${uname}</arg>
+<arg>${unameval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.722" level="INFO">Typing text 'User2' into text field 'UserName'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.798" starttime="20190912 00:10:24.721"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${pass}</arg>
+<arg>${passval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.799" level="INFO">Typing text 'Pass2' into text field 'Password'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.878" starttime="20190912 00:10:24.799"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets radio button group ``group_name`` to ``value``.</doc>
+<arguments>
+<arg>${radio}</arg>
+<arg>${cusval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.880" level="INFO">Selecting '16' from radio button 'optionsRadios'.</msg>
+<status status="PASS" endtime="20190912 00:10:24.953" starttime="20190912 00:10:24.879"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>${role}</arg>
+<arg>${roleval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:24.954" level="INFO">Selecting options from selection list '//select[@name='RoleId']' by label Customer.</msg>
+<status status="PASS" endtime="20190912 00:10:25.022" starttime="20190912 00:10:24.953"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${email}</arg>
+<arg>${emailval[${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:25.023" level="INFO">Typing text 'customer@mail.com' into text field '//input[@name='Email']'.</msg>
+<status status="PASS" endtime="20190912 00:10:25.152" starttime="20190912 00:10:25.022"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${cell}</arg>
+<arg>${cellval [${i}]}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:25.154" level="INFO">Typing text '083444' into text field 'Mobilephone'.</msg>
+<status status="PASS" endtime="20190912 00:10:25.232" starttime="20190912 00:10:25.153"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${save}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:25.233" level="INFO">Clicking button '//*[@class='btn btn-success']'.</msg>
+<status status="PASS" endtime="20190912 00:10:25.311" starttime="20190912 00:10:25.233"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>User created: ${unameval [${i}]}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:25.312" starttime="20190912 00:10:25.311"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:25.312" starttime="20190912 00:10:24.464"></status>
+</kw>
+<kw name="Check your name" library="task001">
+<arguments>
+<arg>FName2</arg>
+<arg>LName2</arg>
+</arguments>
+<assign>
+<var>${verifycount}</var>
+</assign>
+<kw name="Get Element Count" library="Selenium2Library">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr/td[1]</arg>
+</arguments>
+<assign>
+<var>${itemcount}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.322" level="INFO">${itemcount} = 9</msg>
+<status status="PASS" endtime="20190912 00:10:25.323" starttime="20190912 00:10:25.313"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${itemcount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:25.324" starttime="20190912 00:10:25.323"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 1 | ${itemcount} ]">
+<kw type="foritem" name="${i} = 1">
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[1]</arg>
+</arguments>
+<assign>
+<var>${item1}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.333" level="INFO">${item1} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="57111d91-c3db-4da4-b388-316dfafdf289")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:25.333" starttime="20190912 00:10:25.325"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item1}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value1}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.340" level="INFO">${value1} = FName2</msg>
+<status status="PASS" endtime="20190912 00:10:25.340" starttime="20190912 00:10:25.334"></status>
+</kw>
+<kw name="Get WebElement" library="Selenium2Library">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>//table/tbody/tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${item2}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.349" level="INFO">${item2} = &lt;selenium.webdriver.remote.webelement.WebElement (session="44683d5eeab489a52506fdd4802f0753", element="6664974a-22b8-48cc-b37d-7095aad3c08f")&gt;</msg>
+<status status="PASS" endtime="20190912 00:10:25.349" starttime="20190912 00:10:25.341"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${item2}</arg>
+<arg>innerHTML</arg>
+</arguments>
+<assign>
+<var>${value2}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.356" level="INFO">${value2} = LName2</msg>
+<status status="PASS" endtime="20190912 00:10:25.356" starttime="20190912 00:10:25.350"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${value1}</arg>
+<arg>${value2}</arg>
+</arguments>
+<assign>
+<var>${fullname}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.357" level="INFO">${fullname} = FName2 LName2</msg>
+<status status="PASS" endtime="20190912 00:10:25.358" starttime="20190912 00:10:25.357"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${checkfirstname}</arg>
+<arg>${checklastname}</arg>
+</arguments>
+<assign>
+<var>${checkname}</var>
+</assign>
+<msg timestamp="20190912 00:10:25.358" level="INFO">${checkname} = FName2 LName2</msg>
+<status status="PASS" endtime="20190912 00:10:25.359" starttime="20190912 00:10:25.358"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>'${fullname}' == '${checkname}'</arg>
+<arg>${i}</arg>
+</arguments>
+<msg timestamp="20190912 00:10:25.359" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20190912 00:10:25.360" starttime="20190912 00:10:25.359"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:25.360" starttime="20190912 00:10:25.325"></status>
+</kw>
+<status status="PASS" endtime="20190912 00:10:25.360" starttime="20190912 00:10:25.324"></status>
+</kw>
+<msg timestamp="20190912 00:10:25.360" level="INFO">${verifycount} = 1</msg>
+<status status="PASS" endtime="20190912 00:10:25.361" starttime="20190912 00:10:25.313"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Position : ${verifycount}</arg>
+</arguments>
+<status status="PASS" endtime="20190912 00:10:25.361" starttime="20190912 00:10:25.361"></status>
+</kw>
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20190912 00:10:27.474" starttime="20190912 00:10:25.362"></status>
+</kw>
+<doc>Add user 2 and check availability</doc>
+<tags>
+<tag>webtest003</tag>
+</tags>
+<status status="PASS" endtime="20190912 00:10:27.475" critical="yes" starttime="20190912 00:10:24.463"></status>
+</test>
+<status status="PASS" endtime="20190912 00:10:27.479" starttime="20190912 00:10:17.533"></status>
+</suite>
+<status status="PASS" endtime="20190912 00:10:27.491" starttime="20190912 00:10:17.530"></status>
+</suite>
+<status status="PASS" endtime="20190912 00:10:27.501" starttime="20190912 00:10:17.525"></status>
+</suite>
+<status status="PASS" endtime="20190912 00:10:27.509" starttime="20190912 00:10:12.545"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="7">Critical Tests</stat>
+<stat fail="0" pass="7">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">apitest001</stat>
+<stat fail="0" pass="1">apitest002</stat>
+<stat fail="0" pass="1">apitest003</stat>
+<stat fail="0" pass="1">apitest004</stat>
+<stat fail="0" pass="1">webtest001</stat>
+<stat fail="0" pass="1">webtest002</stat>
+<stat fail="0" pass="1">webtest003</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="ABSAAssessment" pass="7">ABSAAssessment</stat>
+<stat fail="0" id="s1-s1" name="API" pass="4">ABSAAssessment.API</stat>
+<stat fail="0" id="s1-s1-s1" name="Test" pass="4">ABSAAssessment.API.Test</stat>
+<stat fail="0" id="s1-s1-s1-s1" name="Test2" pass="4">ABSAAssessment.API.Test.Test2</stat>
+<stat fail="0" id="s1-s2" name="Webtest" pass="3">ABSAAssessment.Webtest</stat>
+<stat fail="0" id="s1-s2-s1" name="Test" pass="3">ABSAAssessment.Webtest.Test</stat>
+<stat fail="0" id="s1-s2-s1-s1" name="Test1" pass="3">ABSAAssessment.Webtest.Test.Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
